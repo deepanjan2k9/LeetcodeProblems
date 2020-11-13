@@ -58,37 +58,6 @@ public class ValidParantheses {
                     return false;
                 }
          }
-
-         char[] openParantheses = {'(', '{', '['};
-         char[] closedParantheses = {')', '}', ']'};
-
-         //char testChar = '';
-         for(int i=0; i<inputString.length(); i++){
-             if(inputString.charAt(i) == openParantheses[0] || 
-                inputString.charAt(i) == openParantheses[1] ||
-                inputString.charAt(i) == openParantheses[2]){
-                    
-                    continue;
-                }
-
-             if(i == 0 && inputString.charAt(i) == closedParantheses[0] || 
-                          inputString.charAt(i) == closedParantheses[1] ||
-                          inputString.charAt(i) == closedParantheses[2]){
-                              return false;
-                          }
-              if(i > 0 && inputString.charAt(i) == closedParantheses[0] || 
-                          inputString.charAt(i) == closedParantheses[1] ||
-                          inputString.charAt(i) == closedParantheses[2]){
-                              switch(inputString.charAt(i)){
-                                  case ')': if(inputString.charAt(i-1) == '(') continue;
-                                  case '}': if(inputString.charAt(i-1) == '}') continue;
-                                  case ']': if(inputString.charAt(i-1) == ']') continue;
-                                  default: return false;
-                              }
-                          }  
-         }
-        
-        
         
         return false;
     }
