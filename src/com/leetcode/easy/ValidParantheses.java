@@ -58,7 +58,18 @@ public class ValidParantheses {
                     return false;
                 }
          }
-        
+
+         //another constraint is that the length of inputString needs to be even, and greater than equal to 2
+        if(inputString.length() %2 != 0){
+            return false;
+        }
+
+        //recursion
+        //base case: encounter a pair, return
+
+        //OR
+        //if theres a valid pair, then a parantheses at position 'i' will have its other pair at the
+        //symmetrically opposite position in the string, i.e. string.length() - (i+1)
         return false;
     }
 }
