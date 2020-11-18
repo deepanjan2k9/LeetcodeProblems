@@ -69,7 +69,42 @@ public class ValidParantheses {
 
         //OR
         //if theres a valid pair, then a parantheses at position 'i' will have its other pair at the
-        //symmetrically opposite position in the string, i.e. string.length() - (i+1)
+        //symmetrically opposite position in the string, i.e. string.length() - (i+1), otherwise, it will have
+        //its other pair at the very next position.
+
+        for(int i=0; i<inputString.length(); i++){
+
+            //check whether other parantheses of the pair is at the next position
+            //also need to make sure i+1<inputString.length()
+            if(
+                    (i+1 < inputString.length()) &&
+                            (inputString.charAt(i) == '(' && inputString.charAt(i+1) == ')') ||
+                            (inputString.charAt(i) == '{' && inputString.charAt(i+1) == '}') ||
+                            (inputString.charAt(i) == '[' && inputString.charAt(i+1) == ']')
+            ){
+               if(i+2 < inputString.length()){
+                   i = i + 2;
+               }else {
+                   return false;
+               }
+
+            }
+            //check whether the other parantheses of the pair is at the symmetrically opposite position
+            else if(
+                    (inputString.charAt(i) == '(' && inputString.charAt(inputString.length() - i - 1) == ')') ||
+                            (inputString.charAt(i) == '{' && inputString.charAt(inputString.length() - i - 1) == '}') ||
+                            (inputString.charAt(i) == '[' && inputString.charAt(inputString.length() - i - 1) == ']')
+            ){
+                //do nothing
+            }else {
+                return false;
+            }
+
+
+
+        }
+
         return false;
+
     }
 }
