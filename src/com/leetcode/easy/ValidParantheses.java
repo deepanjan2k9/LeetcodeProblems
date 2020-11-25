@@ -28,83 +28,156 @@
  * 
  * @author Deepanjan Das
  * 
- * Use recursion.
+ * Use recursion. 
  * 
 */
 
 package com.leetcode.easy;
-
-import java.text.CharacterIterator;
-import java.text.StringCharacterIterator;
+import java.util.*;
 
 public class ValidParantheses {
+
+    public static void main(String[] args){
+        String input1 = "(((((())))))";
+        String input2 = "()()()";
+        String input3 = "(((((())";
+        String input4 = "((()(())))";
+        String input5 = "()[]{}";
+        String input6 = "([)]"; 
+        String input7 = "(abcd)";
+        String input8 = "({(()()())})";
+        String input9 = "[()]";
+        String input10 = "{[]";
+
+        System.out.println("Validity for input: " + input1 + " is: " + isValid(input1));
+        System.out.println("Validity for input: " + input2 + " is: " + isValid(input2));
+        System.out.println("Validity for input: " + input3 + " is: " + isValid(input3));
+        System.out.println("Validity for input: " + input4 + " is: " + isValid(input4));
+        System.out.println("Validity for input: " + input5 + " is: " + isValid(input5));
+        System.out.println("Validity for input: " + input6 + " is: " + isValid(input6));
+        System.out.println("Validity for input: " + input7 + " is: " + isValid(input7));
+        System.out.println("Validity for input: " + input8 + " is: " + isValid(input8));
+        System.out.println("Validity for input: " + input9 + " is: " + isValid(input9));
+        System.out.println("Validity for input: " + input10 + " is: " + isValid(input10));
+        System.out.println("END");
+    }
     
-    public boolean isValid(String inputString){
+    public static boolean isValid(String inputString){
          //check constraints - 
          //length of inputString
          if(inputString.length()<1 || inputString.length()>10000){
              return false;
          }
          //inputString must consist only of parantheses
-         CharacterIterator iterator = new StringCharacterIterator(inputString); //can also use traditional for-loop
-         while(iterator.current() != CharacterIterator.DONE){
-            char c = iterator.current();
-            if( c != '[' ||
-                c != ']' ||
-                c != '(' ||
-                c != ')' ||
-                c != '{' ||
-                c != '}' ){
-                    return false;
-                }
-         }
-
+         //boolean invalidChars = true;
+         //ArrayList contains of only the possible parantheses
+         ArrayList<String> dictionary = new ArrayList<>();
+         dictionary.add("(");
+         dictionary.add(")");
+         dictionary.add("{");
+         dictionary.add("}");
+         dictionary.add("[");
+         dictionary.add("]");
+         //compare each character of inputString with the ArrayList to see if 
+         //it contains only parantheses or not. This comparison takes O(n^2) time
+         //because the for-loop takes O(n) and the ArrayList.contains() takes O(n)
+         for(int i=0; i<inputString.length(); i++){
+             //do something
+            char bracket = inputString.charAt(i); 
+             if(dictionary.contains(String.valueOf(bracket))){ 
+                continue;
+            }else {
+                return false;
+            }
+         } 
+         
          //another constraint is that the length of inputString needs to be even, and greater than equal to 2
         if(inputString.length() %2 != 0){
             return false;
         }
 
-        //recursion
-        //base case: encounter a pair, return
+        //simple case when there is only one kind of paratheses, say '()'
+        //the number of each parantheses '(' and ')' must be even
+        //so set up a counter for each
+        int openCounter = 0;
+        //int closeCounter = 0;
+        int openCurlyCounter = 0;
+        //int closeCurlyCounter = 0;
+        int openSquareCounter = 0;
+        //int closeSquareCounter = 0;
 
-        //OR
-        //if theres a valid pair, then a parantheses at position 'i' will have its other pair at the
-        //symmetrically opposite position in the string, i.e. string.length() - (i+1), otherwise, it will have
-        //its other pair at the very next position.
+        //This stack stores the type of open paratheses last encountered. When
+        //a closed parantheses is encountered, the program checks the stack for
+        //the last encountered open paratheses to see if there is a match.
+        Stack encounterType = new Stack();
+
 
         for(int i=0; i<inputString.length(); i++){
 
-            //check whether other parantheses of the pair is at the next position
-            //also need to make sure i+1<inputString.length()
-            if(
-                    (i+1 < inputString.length()) &&
-                            (inputString.charAt(i) == '(' && inputString.charAt(i+1) == ')') ||
-                            (inputString.charAt(i) == '{' && inputString.charAt(i+1) == '}') ||
-                            (inputString.charAt(i) == '[' && inputString.charAt(i+1) == ']')
-            ){
-               if(i+2 < inputString.length()){
-                   i = i + 2;
-               }else {
-                   return false;
-               }
-
+            if(inputString.charAt(i) == '('){
+                openCounter++;
+                //encounteredType = "normal";
+                encounterType.push("normal");
             }
-            //check whether the other parantheses of the pair is at the symmetrically opposite position
-            else if(
-                    (inputString.charAt(i) == '(' && inputString.charAt(inputString.length() - i - 1) == ')') ||
-                            (inputString.charAt(i) == '{' && inputString.charAt(inputString.length() - i - 1) == '}') ||
-                            (inputString.charAt(i) == '[' && inputString.charAt(inputString.length() - i - 1) == ']')
-            ){
-                //do nothing
-            }else {
-                return false;
+            if(inputString.charAt(i) == ')'){
+                //String type = "";
+                try{
+                    //String type = encounterType.pop().toString(); 
+                    if(openCounter > 0 && encounterType.pop().toString().equals("normal")){
+                        openCounter--;
+                    } 
+                }catch(EmptyStackException ese){
+                    System.out.println("Error: " + ese.getMessage());
+                    return false;
+                }
+                
+                
+            }
+            
+            if(inputString.charAt(i) == '{'){
+                openCurlyCounter++;
+                //encounteredType = "curly";
+                encounterType.push("curly");
+            }
+            if(inputString.charAt(i) == '}'){
+                try{
+                    if(openCurlyCounter > 0 && encounterType.pop().toString().equals("curly")){
+                        openCurlyCounter--;
+                    }
+                }catch(EmptyStackException ese){
+                    System.out.println("Error: " + ese.getMessage());
+                    return false;
+                }
+                
             }
 
-
+            
+            if(inputString.charAt(i) == '['){
+                openSquareCounter++;
+                //encounteredType = "square";
+                encounterType.push("square");
+            }
+            if(inputString.charAt(i) == ']'){
+                try{
+                    if(openSquareCounter > 0 && encounterType.pop().toString().equals("square")){
+                    openSquareCounter--;
+                }
+                }catch(EmptyStackException ese){
+                    System.out.println("Error: " + ese.getMessage());
+                    return false;
+                }
+                
+            }
+            
 
         }
 
-        return false;
+        //check if openCounter == closeCounter
+        if(openCounter == 0 && openCurlyCounter == 0 && openSquareCounter == 0){
+            return true;
+        } else return false;
+
+        
 
     }
 }
