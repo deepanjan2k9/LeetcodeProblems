@@ -26,9 +26,7 @@
  * Input: "([)]"
  * Output: false
  * 
- * @author Deepanjan Das
- * 
- * Use recursion. 
+ * @author Deepanjan Das 
  * 
 */
 
@@ -82,7 +80,6 @@ public class ValidParantheses {
          //it contains only parantheses or not. This comparison takes O(n^2) time
          //because the for-loop takes O(n) and the ArrayList.contains() takes O(n)
          for(int i=0; i<inputString.length(); i++){
-             //do something
             char bracket = inputString.charAt(i); 
              if(dictionary.contains(String.valueOf(bracket))){ 
                 continue;
@@ -100,12 +97,9 @@ public class ValidParantheses {
         //the number of each parantheses '(' and ')' must be even
         //so set up a counter for each
         int openCounter = 0;
-        //int closeCounter = 0;
         int openCurlyCounter = 0;
-        //int closeCurlyCounter = 0;
         int openSquareCounter = 0;
-        //int closeSquareCounter = 0;
-
+        
         //This stack stores the type of open paratheses last encountered. When
         //a closed parantheses is encountered, the program checks the stack for
         //the last encountered open paratheses to see if there is a match.
@@ -116,13 +110,10 @@ public class ValidParantheses {
 
             if(inputString.charAt(i) == '('){
                 openCounter++;
-                //encounteredType = "normal";
                 encounterType.push("normal");
             }
             if(inputString.charAt(i) == ')'){
-                //String type = "";
                 try{
-                    //String type = encounterType.pop().toString(); 
                     if(openCounter > 0 && encounterType.pop().toString().equals("normal")){
                         openCounter--;
                     } 
@@ -130,13 +121,10 @@ public class ValidParantheses {
                     System.out.println("Error: " + ese.getMessage());
                     return false;
                 }
-                
-                
             }
             
             if(inputString.charAt(i) == '{'){
                 openCurlyCounter++;
-                //encounteredType = "curly";
                 encounterType.push("curly");
             }
             if(inputString.charAt(i) == '}'){
@@ -148,13 +136,11 @@ public class ValidParantheses {
                     System.out.println("Error: " + ese.getMessage());
                     return false;
                 }
-                
             }
 
             
             if(inputString.charAt(i) == '['){
                 openSquareCounter++;
-                //encounteredType = "square";
                 encounterType.push("square");
             }
             if(inputString.charAt(i) == ']'){
@@ -166,18 +152,12 @@ public class ValidParantheses {
                     System.out.println("Error: " + ese.getMessage());
                     return false;
                 }
-                
             }
-            
-
         }
 
         //check if openCounter == closeCounter
         if(openCounter == 0 && openCurlyCounter == 0 && openSquareCounter == 0){
             return true;
         } else return false;
-
-        
-
     }
 }
