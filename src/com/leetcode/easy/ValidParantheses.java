@@ -46,6 +46,7 @@ public class ValidParantheses {
         String input8 = "({(()()())})";
         String input9 = "[()]";
         String input10 = "{[]";
+        String input11 = "([}}])";
 
         System.out.println("Validity for input: " + input1 + " is: " + isValid(input1));
         System.out.println("Validity for input: " + input2 + " is: " + isValid(input2));
@@ -57,6 +58,7 @@ public class ValidParantheses {
         System.out.println("Validity for input: " + input8 + " is: " + isValid(input8));
         System.out.println("Validity for input: " + input9 + " is: " + isValid(input9));
         System.out.println("Validity for input: " + input10 + " is: " + isValid(input10));
+        System.out.println("Validity for input: " + input11 + " is: " + isValid(input11));
         System.out.println("END");
     }
     
@@ -103,7 +105,7 @@ public class ValidParantheses {
         //This stack stores the type of open paratheses last encountered. When
         //a closed parantheses is encountered, the program checks the stack for
         //the last encountered open paratheses to see if there is a match.
-        Stack encounterType = new Stack();
+        Stack<String> encounterType = new Stack<>();
 
 
         for(int i=0; i<inputString.length(); i++){
@@ -114,6 +116,10 @@ public class ValidParantheses {
             }
             if(inputString.charAt(i) == ')'){
                 try{
+                    //when there is no matching open parantheses
+                    if(openCounter == 0){
+                        return false;
+                    }
                     if(openCounter > 0 && encounterType.pop().toString().equals("normal")){
                         openCounter--;
                     } 
@@ -129,6 +135,10 @@ public class ValidParantheses {
             }
             if(inputString.charAt(i) == '}'){
                 try{
+                    //when there is no matching open parantheses
+                    if(openCurlyCounter == 0){
+                        return false;
+                    }
                     if(openCurlyCounter > 0 && encounterType.pop().toString().equals("curly")){
                         openCurlyCounter--;
                     }
@@ -145,6 +155,10 @@ public class ValidParantheses {
             }
             if(inputString.charAt(i) == ']'){
                 try{
+                    //when there is no matching open parantheses
+                    if(openSquareCounter == 0){
+                        return false;
+                    }
                     if(openSquareCounter > 0 && encounterType.pop().toString().equals("square")){
                     openSquareCounter--;
                 }
