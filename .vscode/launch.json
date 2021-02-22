@@ -1,0 +1,182 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch RansomNote",
+            "request": "launch",
+            "mainClass": "com.self.RansomNote",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch ValidateSubsequence",
+            "request": "launch",
+            "mainClass": "com.self.ValidateSubsequence",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch CustomSortingArray",
+            "request": "launch",
+            "mainClass": "com.self.CustomSortingArray",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch CounterfeitBills",
+            "request": "launch",
+            "mainClass": "com.self.CounterfeitBills",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch RegexTest",
+            "request": "launch",
+            "mainClass": "com.self.RegexTest",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch UniqueSumToN",
+            "request": "launch",
+            "mainClass": "com.self.UniqueSumToN",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch MaxAmongMultiplesOfThree",
+            "request": "launch",
+            "mainClass": "com.self.MaxAmongMultiplesOfThree",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch ThreeLargestNumbers",
+            "request": "launch",
+            "mainClass": "com.self.ThreeLargestNumbers",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch ReverseString",
+            "request": "launch",
+            "mainClass": "com.self.ReverseString",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch MaxJuniorsInFamily",
+            "request": "launch",
+            "mainClass": "com.self.MaxJuniorsInFamily",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "com.self.test",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch ArrayRightRotation",
+            "request": "launch",
+            "mainClass": "com.self.ArrayRightRotation",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch ArrayLeftRotation",
+            "request": "launch",
+            "mainClass": "com.hackerrank.ArrayLeftRotation",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch RangeSumBST",
+            "request": "launch",
+            "mainClass": "com.leetcode.easy.RangeSumBST",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch RemoveVowelsFromString",
+            "request": "launch",
+            "mainClass": "com.leetcode.easy.RemoveVowelsFromString",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch ReverseInteger",
+            "request": "launch",
+            "mainClass": "com.leetcode.easy.ReverseInteger",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch ReverseIntegerIdealSolution",
+            "request": "launch",
+            "mainClass": "com.leetcode.easy.ReverseIntegerIdealSolution",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunningSumOfArray",
+            "request": "launch",
+            "mainClass": "com.leetcode.easy.RunningSumOfArray",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch ShuffleArray",
+            "request": "launch",
+            "mainClass": "com.leetcode.easy.ShuffleArray",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch ValidParantheses",
+            "request": "launch",
+            "mainClass": "com.leetcode.easy.ValidParantheses",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "com.leetcode.easy.test",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch LongestSubstringWithoutRepeat",
+            "request": "launch",
+            "mainClass": "com.leetcode.medium.LongestSubstringWithoutRepeat",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch RemoveDuplicateCharsFromString",
+            "request": "launch",
+            "mainClass": "com.self.RemoveDuplicateCharsFromString",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
+            "name": "Launch UniqueCharsInString",
+            "request": "launch",
+            "mainClass": "com.self.UniqueCharsInString",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        }
+    ]
+}
