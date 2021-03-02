@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MergeTwoSortedArrays",
+            "request": "launch",
+            "mainClass": "com.self.MergeTwoSortedArrays",
+            "projectName": "LeetcodeProblems_74fad7cb"
+        },
+        {
+            "type": "java",
             "name": "Launch RansomNote",
             "request": "launch",
             "mainClass": "com.self.RansomNote",
